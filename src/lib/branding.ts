@@ -1,10 +1,10 @@
 /** Platform display name */
-export const PLATFORM_NAME = "ODG Algeria";
+export const PLATFORM_NAME = "ODEJ Algeria";
 
 /** Official seal — Ministry of Youth / Wilaya of Béjaïa */
 export const ODEJ_LOGO_SRC = "/odej-logo.png";
 export const ODEJ_LOGO_ALT_AR =
-  "شعار منصة ODG Algeria — ديوان مؤسسات الشباب";
+  "شعار منصة ODEJ — ديوان مؤسسات الشباب";
 
 /** National youth festivals portal — وزارة الشباب (مهرجاني) */
 export const MAHRAJANI_FESTIVAL_URL =

@@ -1,5 +1,5 @@
 {
-  "meta": { "homeTitle": "Home", "homeDesc": "ODG Algeria — national youth institutions platform across 69 wilayas" },
+  "meta": { "homeTitle": "Home", "homeDesc": "ODEJ Algeria — national youth institutions platform across 69 wilayas" },
   "wilaya": {
     "mapSectionTitle": "Explore Algeria — 69 wilayas",
     "mapSectionSubtitle": "Hover or click any province to explore youth institutions across all {{count}} wilayas.",

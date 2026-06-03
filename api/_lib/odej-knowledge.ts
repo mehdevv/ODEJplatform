@@ -1,5 +1,5 @@
 /**
- * Curated facts for the ODG assistant — keep in sync with public site content.
+ * Curated facts for the ODEJ assistant — keep in sync with public site content.
  * Bundled inside /api for Vercel serverless.
  */
 export const ODEJ_KNOWLEDGE_BASE = `
@@ -8,7 +8,7 @@ export const ODEJ_KNOWLEDGE_BASE = `
 ## الهوية
 - الاسم الرسمي: ديوان مؤسسات الشباب لولاية بجاية (Office des Établissements des Jeunes — Wilaya de Béjaïa).
 - تابع لوزارة الشباب والرياضة — الجمهورية الجزائرية الديمقراطية الشعبية.
-- الموقع الرقمي: منصة ODG Algeria تربط الشباب بالمؤسسات الشبانية والأنشطة والتكوين.
+- الموقع الرقمي: منصة ODEJ تربط الشباب بالمؤسسات الشبانية والأنشطة والتكوين.
 
 ## ما توفره المنصة
 - دليل المؤسسات الشبانية (بيوت الشباب، مراكز ثقافية، مرافق رياضية) مع خريطة الـ 69 ولاية.

@@ -1,4 +1,4 @@
-# ODG Algeria — Digital Platform
+# ODEJ Algeria — Digital Platform
 
 National digital portal for Algeria’s youth institutions network (Office des Établissements des Jeunes — 69 wilayas). React + Vite SPA with Arabic RTL support and mock data (frontend-only demo).
 
