@@ -32,11 +32,11 @@ export function NewsCard({ article }: NewsCardProps) {
         <CardMedia
           src={article.featuredImage}
           alt={title}
-          className="aspect-[16/10] min-h-[200px] w-full"
+          className="aspect-[16/10] min-h-[140px] w-full sm:min-h-[180px]"
           imageClassName="transition-transform duration-500 group-hover:scale-105"
           fallback={<FileText className="h-12 w-12" />}
         />
-        <CardContent className="flex flex-1 flex-col p-5">
+        <CardContent className="flex flex-1 flex-col p-4 sm:p-5">
           <div className="mb-3 flex items-center gap-2 text-xs text-muted-foreground">
             <span className="rounded bg-primary/10 px-2 py-1 font-medium text-primary">
               {categoryKey ? t(categoryKey) : t("news.categoryFallback")}

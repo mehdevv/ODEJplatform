@@ -96,7 +96,7 @@ export function ScrollCarousel({
             type="button"
             variant="secondary"
             size="icon"
-            className="absolute start-2 top-1/2 z-10 h-10 w-10 -translate-y-1/2 rounded-full shadow-md opacity-0 transition-opacity group-hover/carousel:opacity-100 focus:opacity-100"
+            className="absolute start-1 top-1/2 z-10 h-9 w-9 -translate-y-1/2 rounded-full shadow-md opacity-80 transition-opacity sm:start-2 sm:h-10 sm:w-10 sm:opacity-0 sm:group-hover/carousel:opacity-100 focus:opacity-100"
             onClick={scrollPrev}
             aria-label="Previous"
           >
@@ -106,7 +106,7 @@ export function ScrollCarousel({
             type="button"
             variant="secondary"
             size="icon"
-            className="absolute end-2 top-1/2 z-10 h-10 w-10 -translate-y-1/2 rounded-full shadow-md opacity-0 transition-opacity group-hover/carousel:opacity-100 focus:opacity-100"
+            className="absolute end-1 top-1/2 z-10 h-9 w-9 -translate-y-1/2 rounded-full shadow-md opacity-80 transition-opacity sm:end-2 sm:h-10 sm:w-10 sm:opacity-0 sm:group-hover/carousel:opacity-100 focus:opacity-100"
             onClick={scrollNext}
             aria-label="Next"
           >

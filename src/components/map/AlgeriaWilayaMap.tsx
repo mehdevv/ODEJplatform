@@ -139,7 +139,8 @@ export function AlgeriaWilayaMap({
     <div
       className={cn(
         "relative flex flex-col rounded-xl border border-primary/10 bg-white/50 p-3 shadow-sm",
-        fillHeight && "min-h-[min(720px,85vh)]",
+        fillHeight &&
+          "min-h-[240px] sm:min-h-[300px] lg:min-h-[min(720px,85vh)]",
         className,
       )}
     >

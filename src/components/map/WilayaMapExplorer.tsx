@@ -20,12 +20,13 @@ export function WilayaMapExplorer({
     hoverCode ?? (syncContext ? wilayaCtx?.wilayaCode ?? null : null);
   const isPreview = !!hoverCode && hoverCode !== wilayaCtx?.wilayaCode;
 
-  const panelMinH = "min-h-[min(720px,85vh)]";
+  const panelMinH =
+    "min-h-[240px] sm:min-h-[320px] lg:min-h-[min(720px,85vh)]";
 
   return (
     <div
       className={cn(
-        "grid gap-6 lg:grid-cols-[minmax(0,1.2fr)_minmax(320px,400px)] lg:items-stretch",
+        "grid gap-4 sm:gap-6 lg:grid-cols-[minmax(0,1.2fr)_minmax(280px,400px)] lg:items-stretch",
         className,
       )}
     >

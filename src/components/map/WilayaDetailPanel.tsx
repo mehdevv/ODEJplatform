@@ -82,7 +82,7 @@ export function WilayaDetailPanel({
     return (
       <aside
         className={cn(
-          "flex min-h-[320px] flex-col items-center justify-center rounded-2xl border border-dashed bg-muted/30 p-8 text-center",
+          "flex min-h-[200px] flex-col items-center justify-center rounded-2xl border border-dashed bg-muted/30 p-6 text-center sm:min-h-[280px] sm:p-8",
           className,
         )}
       >
@@ -95,11 +95,11 @@ export function WilayaDetailPanel({
   return (
     <aside
       className={cn(
-        "flex max-h-[min(720px,85vh)] flex-col overflow-hidden rounded-2xl border bg-white shadow-lg",
+        "flex max-h-none flex-col overflow-hidden rounded-2xl border bg-white shadow-lg lg:max-h-[min(720px,85vh)]",
         className,
       )}
     >
-      <div className="shrink-0 border-b bg-primary/5 p-4">
+      <div className="shrink-0 border-b bg-primary/5 p-3 sm:p-4">
         <div className="mb-1 flex items-start justify-between gap-2">
           <div>
             <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
@@ -128,7 +128,7 @@ export function WilayaDetailPanel({
           wilayaCode={wilayaCode}
           institutions={offices}
           className="mt-4"
-          heightClassName="h-[240px]"
+          heightClassName="h-[160px] sm:h-[200px] lg:h-[240px]"
         />
       </div>
 
