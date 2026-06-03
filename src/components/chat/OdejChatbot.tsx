@@ -461,7 +461,7 @@ export function OdejChatbot() {
                       send(input);
                     }
                   }}
-                  disabled={loading || configured === false}
+                  disabled={loading || health?.configured === false}
                 />
                 <motion.div
                   whileHover={reduced ? undefined : { scale: 1.05 }}
@@ -471,7 +471,7 @@ export function OdejChatbot() {
                     type="submit"
                     size="icon"
                     className="shrink-0 h-11 w-11"
-                    disabled={loading || !input.trim() || configured === false}
+                    disabled={loading || !input.trim() || health?.configured === false}
                   >
                     <Send className={cn("h-4 w-4", isRtl && "-scale-x-100")} />
                   </Button>
