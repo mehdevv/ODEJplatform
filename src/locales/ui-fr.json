@@ -1,5 +1,5 @@
 {
-  "meta": { "homeTitle": "Accueil", "homeDesc": "Plateforme nationale ODEJ — 69 wilayas" },
+  "meta": { "homeTitle": "Accueil", "homeDesc": "ODG Algérie — plateforme nationale des établissements de jeunesse, 69 wilayas" },
   "wilaya": {
     "mapSectionTitle": "Explorez l'Algérie — 69 wilayas",
     "mapSectionSubtitle": "Survolez ou cliquez une wilaya pour explorer les établissements ({{count}} wilayas).",

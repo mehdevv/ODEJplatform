@@ -1,6 +1,8 @@
-# ODEJ Béjaïa — Digital Platform
+# ODG Algeria — Digital Platform
 
-Official youth institutions portal for the Wilaya of Béjaïa, Algeria. React + Vite SPA with Arabic RTL support and mock data (frontend-only demo).
+National digital portal for Algeria’s youth institutions network (Office des Établissements des Jeunes — 69 wilayas). React + Vite SPA with Arabic RTL support and mock data (frontend-only demo).
+
+See [docs/PROJECT_DESCRIPTION.md](docs/PROJECT_DESCRIPTION.md) for a full project overview.
 
 ## Prerequisites
 

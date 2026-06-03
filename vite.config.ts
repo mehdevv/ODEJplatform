@@ -10,6 +10,7 @@ export default defineConfig(({ mode }) => {
 
   return {
   base: "/",
+  appType: "spa",
   plugins: [react(), tailwindcss(), groqChatPlugin(groqApiKey)],
   resolve: {
     alias: {
@@ -24,6 +25,8 @@ export default defineConfig(({ mode }) => {
   preview: {
     port: 4173,
     host: true,
+    // SPA fallback so refresh on /ar/… routes never returns 404 in preview
+    strictPort: false,
   },
   test: {
     globals: true,
