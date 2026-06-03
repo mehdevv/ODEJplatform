@@ -35,6 +35,8 @@ async function parseJsonResponse<T>(res: Response): Promise<T> {
 export type ChatHealthStatus = {
   ok: boolean;
   configured: boolean;
+  /** Serverless function error (500) — redeploy needed, not just env var */
+  unavailable?: boolean;
 };
 
 export async function checkChatHealth(): Promise<ChatHealthStatus> {
@@ -47,11 +49,18 @@ export async function checkChatHealth(): Promise<ChatHealthStatus> {
       ok?: boolean;
       configured?: boolean;
     }>(res);
+    if (!res.ok) {
+      return {
+        ok: false,
+        configured: false,
+        unavailable: res.status >= 500,
+      };
+    }
     return {
-      ok: res.ok && Boolean(data.ok),
+      ok: Boolean(data.ok),
       configured: Boolean(data.configured),
     };
   } catch {
-    return { ok: false, configured: false };
+    return { ok: false, configured: false, unavailable: true };
   }
 }

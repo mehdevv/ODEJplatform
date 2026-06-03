@@ -143,7 +143,10 @@ export function OdejChatbot() {
   const isRtl = getTextDirection(lang) === "rtl";
   const panelVariants = panelMotion(isRtl);
   const [open, setOpen] = useState(false);
-  const [configured, setConfigured] = useState<boolean | null>(null);
+  const [health, setHealth] = useState<{
+    configured: boolean;
+    unavailable?: boolean;
+  } | null>(null);
   const [messages, setMessages] = useState<ChatMessage[]>(() => {
     const stored = loadChatPersisted();
     if (stored?.messages.length) return stored.messages;
@@ -168,7 +171,12 @@ export function OdejChatbot() {
   }, []);
 
   const refreshHealth = useCallback(() => {
-    checkChatHealth().then((status) => setConfigured(status.configured));
+    checkChatHealth().then((status) =>
+      setHealth({
+        configured: status.configured,
+        unavailable: status.unavailable,
+      }),
+    );
   }, []);
 
   useEffect(() => {
@@ -345,9 +353,9 @@ export function OdejChatbot() {
               </Button>
             </motion.header>
 
-            {configured === false && (
+            {health && !health.configured && (
               <p className="text-xs bg-amber-50 text-amber-900 px-4 py-2 border-b">
-                {t("chat.notConfigured")}
+                {t(health.unavailable ? "chat.apiUnavailable" : "chat.notConfigured")}
               </p>
             )}
 

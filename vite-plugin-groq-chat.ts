@@ -4,7 +4,7 @@ import {
   getClientIp,
   handleChatHealth,
   handleChatPost,
-} from "./server/groq-chat-core";
+} from "./api/_lib/groq-chat-core";
 
 function requestPath(url: string | undefined): string {
   if (!url) return "";
