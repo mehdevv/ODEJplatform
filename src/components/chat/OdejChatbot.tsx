@@ -167,9 +167,17 @@ export function OdejChatbot() {
     // eslint-disable-next-line react-hooks/exhaustive-deps -- run once on mount
   }, []);
 
-  useEffect(() => {
-    checkChatHealth().then(setConfigured);
+  const refreshHealth = useCallback(() => {
+    checkChatHealth().then((status) => setConfigured(status.configured));
   }, []);
+
+  useEffect(() => {
+    refreshHealth();
+  }, [refreshHealth]);
+
+  useEffect(() => {
+    if (open) refreshHealth();
+  }, [open, refreshHealth]);
 
   useEffect(() => {
     if (!hydrated) return;

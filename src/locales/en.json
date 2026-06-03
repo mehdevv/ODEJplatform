@@ -113,7 +113,7 @@
     "placeholder": "Type your question...",
     "thinking": "Thinking...",
     "disclaimer": "General guidance only — for sensitive health matters:",
-    "notConfigured": "Assistant disabled: add GROQ_API_KEY to .env.local and restart the dev server.",
+    "notConfigured": "Assistant disabled: set GROQ_API_KEY in .env or .env.local, restart npm run dev (local), or redeploy on Vercel after adding the variable.",
     "errorGeneric": "Could not reach the assistant",
     "errorReply": "Error: {{detail}}. Try again or visit the contact page.",
     "suggest1": "How do I register for an activity?",

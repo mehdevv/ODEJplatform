@@ -11,7 +11,7 @@ export default defineConfig(({ mode }) => {
   return {
   base: "/",
   appType: "spa",
-  plugins: [react(), tailwindcss(), groqChatPlugin(groqApiKey)],
+  plugins: [groqChatPlugin(groqApiKey), react(), tailwindcss()],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "src"),

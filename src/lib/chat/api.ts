@@ -10,7 +10,7 @@ export async function sendChatMessage(
     body: JSON.stringify({ messages, locale }),
   });
 
-  const data = (await res.json()) as ChatApiResponse & { error?: string };
+  const data = await parseJsonResponse<ChatApiResponse & { error?: string }>(res);
 
   if (!res.ok) {
     throw new Error(data.error ?? "Chat request failed");
@@ -19,12 +19,39 @@ export async function sendChatMessage(
   return data;
 }
 
-export async function checkChatHealth(): Promise<boolean> {
+async function parseJsonResponse<T>(res: Response): Promise<T> {
+  const text = await res.text();
   try {
-    const res = await fetch("/api/chat/health");
-    const data = (await res.json()) as { configured?: boolean };
-    return res.ok && Boolean(data.configured);
+    return JSON.parse(text) as T;
   } catch {
-    return false;
+    throw new Error(
+      res.status === 404
+        ? "Chat API not found. Redeploy with api/ routes or restart npm run dev."
+        : "Invalid response from chat API",
+    );
+  }
+}
+
+export type ChatHealthStatus = {
+  ok: boolean;
+  configured: boolean;
+};
+
+export async function checkChatHealth(): Promise<ChatHealthStatus> {
+  try {
+    const res = await fetch("/api/chat/health", {
+      cache: "no-store",
+      headers: { Accept: "application/json" },
+    });
+    const data = await parseJsonResponse<{
+      ok?: boolean;
+      configured?: boolean;
+    }>(res);
+    return {
+      ok: res.ok && Boolean(data.ok),
+      configured: Boolean(data.configured),
+    };
+  } catch {
+    return { ok: false, configured: false };
   }
 }
