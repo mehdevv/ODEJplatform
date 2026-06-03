@@ -21,9 +21,10 @@ Open http://localhost:5173
 
 ### AI assistant (Groq)
 
-1. Copy `.env.example` to `.env.local` and set `GROQ_API_KEY` from [Groq Console](https://console.groq.com).
-2. Run `npm run dev` — the chat API is proxied at `/api/chat` (key stays server-side).
-3. Use the floating chat button on public pages.
+1. Copy `.env.example` to `.env` or `.env.local` and set `GROQ_API_KEY` from [Groq Console](https://console.groq.com).
+2. **Local:** `npm run dev` — Vite serves `/api/chat` via dev middleware (key never exposed to the browser).
+3. **Vercel:** add `GROQ_API_KEY` in Project → Settings → Environment Variables (Production and Preview), then redeploy. Serverless handlers live in `api/chat.ts` and `api/chat/health.ts`.
+4. Use the floating chat button on public pages.
 
 ## Demo accounts
 
