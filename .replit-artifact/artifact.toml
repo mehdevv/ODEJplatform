@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "ODEJ Béjaïa Platform"
+version = "1.0.0"
+id = "artifacts/odej-platform"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 19640
+
+[services.development]
+run = "pnpm --filter @workspace/odej-platform run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/odej-platform", "run", "build" ]
+publicDir = "artifacts/odej-platform/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "19640"
+BASE_PATH = "/"

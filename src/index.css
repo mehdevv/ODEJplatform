@@ -1,0 +1,237 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-card-border: hsl(var(--card-border));
+
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-popover-border: hsl(var(--popover-border));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-primary-border: var(--primary-border);
+
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-secondary-border: var(--secondary-border);
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-muted-border: var(--muted-border);
+
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-accent-border: var(--accent-border);
+
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-destructive-border: var(--destructive-border);
+
+  --color-sidebar: hsl(var(--sidebar));
+  --color-sidebar-foreground: hsl(var(--sidebar-foreground));
+  --color-sidebar-border: hsl(var(--sidebar-border));
+  --color-sidebar-primary: hsl(var(--sidebar-primary));
+  --color-sidebar-primary-foreground: hsl(var(--sidebar-primary-foreground));
+  --color-sidebar-primary-border: var(--sidebar-primary-border);
+  --color-sidebar-accent: hsl(var(--sidebar-accent));
+  --color-sidebar-accent-foreground: hsl(var(--sidebar-accent-foreground));
+  --color-sidebar-accent-border: var(--sidebar-accent-border);
+  --color-sidebar-ring: hsl(var(--sidebar-ring));
+
+  --font-sans: var(--app-font-sans);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  --background: 0 0% 96%; /* #F5F5F5 Surface */
+  --foreground: 0 0% 13%; /* #212121 Text primary */
+
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 13%;
+  --card-border: 120 20% 90%;
+
+  --popover: 0 0% 100%;
+  --popover-foreground: 0 0% 13%;
+  --popover-border: 120 20% 90%;
+
+  --primary: 123 46% 34%; /* #2E7D32 */
+  --primary-foreground: 0 0% 100%;
+  
+  --secondary: 122 36% 85%; /* #C8E6C9 Primary light */
+  --secondary-foreground: 123 64% 24%; /* #1B5E20 Primary dark */
+
+  --muted: 0 0% 90%;
+  --muted-foreground: 0 0% 38%; /* #616161 Text secondary */
+
+  --accent: 21 100% 45%; /* #E65100 */
+  --accent-foreground: 0 0% 100%;
+
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+
+  --border: 120 15% 85%;
+  --input: 120 15% 85%;
+  --ring: 123 46% 34%;
+  
+  --sidebar: 123 46% 34%;
+  --sidebar-foreground: 0 0% 100%;
+  --sidebar-border: 123 64% 24%;
+  --sidebar-primary: 123 64% 24%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 123 64% 24%;
+  --sidebar-accent-foreground: 0 0% 100%;
+  --sidebar-ring: 122 36% 85%;
+
+  --app-font-sans: 'Cairo', sans-serif;
+  --radius: 0.75rem;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    direction: rtl;
+  }
+}
+
+@layer utilities {
+  .hover-elevate {
+    @apply transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5;
+  }
+
+  .text-primary-dark {
+    color: hsl(123 64% 24%);
+  }
+
+  .bg-primary-dark {
+    background-color: hsl(123 64% 24%);
+  }
+
+  .bg-surface {
+    background-color: hsl(0 0% 96%);
+  }
+
+  /* Embla carousels — drag affordance */
+  .embla-carousel.embla__is-dragging,
+  .embla-carousel:active {
+    cursor: grabbing;
+  }
+
+  .embla-carousel {
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .embla-carousel * {
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* Embla carousel — drag affordance */
+.embla-carousel [class*="overflow-hidden"] {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Leaflet — ODEJ office pins */
+.odej-map-marker {
+  background: transparent !important;
+  border: none !important;
+}
+
+.odej-map-marker-pin {
+  display: block;
+  width: 26px;
+  height: 26px;
+  margin: 0 auto;
+  background: hsl(145 63% 32%);
+  border: 3px solid #fff;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.28);
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius: 0.5rem;
+}
+
+/* ODEJ chatbot — flowing accent ring on launcher */
+@keyframes odej-chat-flow {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes odej-chat-pulse {
+  0%,
+  100% {
+    box-shadow: 0 8px 28px hsl(123 46% 34% / 0.35);
+  }
+  50% {
+    box-shadow: 0 10px 36px hsl(123 46% 34% / 0.5);
+  }
+}
+
+.odej-chat-launcher {
+  position: relative;
+  animation: odej-chat-pulse 3s ease-in-out infinite;
+}
+
+.odej-chat-launcher::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: 9999px;
+  padding: 2px;
+  background: conic-gradient(
+    from 0deg,
+    hsl(123 46% 34%),
+    hsl(122 36% 75%),
+    hsl(123 64% 24%),
+    hsl(123 46% 34%)
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: odej-chat-flow 4s linear infinite;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
