@@ -12,6 +12,7 @@ import { LanguageSwitcher } from "./LanguageSwitcher";
 import { stripLocalePrefix } from "@/components/routing/LocaleRouter";
 import { cn } from "@/lib/utils";
 import { ODEJ_LOGO_ALT_AR, ODEJ_LOGO_SRC } from "@/lib/branding";
+import { YouthFestivalNavLink } from "./YouthFestivalNavLink";
 
 const PRIMARY_LINKS = [
   { href: "/", labelKey: "nav.home" },
@@ -90,6 +91,7 @@ export function SiteHeader() {
               active={href === "/" ? isHome : barePath === href}
             />
           ))}
+          <YouthFestivalNavLink />
           <NavbarOverflowMenu />
         </nav>
 
@@ -172,6 +174,13 @@ export function SiteHeader() {
                 {t(labelKey)}
               </Link>
             ))}
+            <div className="px-3 py-2">
+              <YouthFestivalNavLink
+                variant="drawer"
+                className="w-full justify-start px-2.5 py-2"
+                onClick={closeMobile}
+              />
+            </div>
             <div className="pt-1">
               <NavbarOverflowMenu variant="bar" onNavigate={closeMobile} />
             </div>
